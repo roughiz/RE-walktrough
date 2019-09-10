@@ -3,7 +3,7 @@ A writeup about the htb RE box
 
 ## Introduction
 This [box](https://www.hackthebox.eu/home/machines/profile/198) from htb was very realstic, the social engineer part was awesome.
-Thanks to [Oxdf](https://www.hackthebox.eu/home/users/profile/4935) for his great work.
+Thanks to [0xdf](https://www.hackthebox.eu/home/users/profile/4935) for his great work.
 
 ## Enumeation
 I use masscan and nmap for a quick scan, here i use a script which create a keepnote page report from the scan, found it [here](https://github.com/roughiz/EnumNeTKeepNoteReportCreator/blob/master/keepNoteScanNetReportCreator.sh).
