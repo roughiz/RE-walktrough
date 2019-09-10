@@ -55,7 +55,7 @@ $ wfuzz  --hh  311 -H 'Host: FUZZ.reblog.htb' -c -w SecLists/Discovery/DNS/fierc
 
 But nothing. let's try with re.htb, firstly with browser we have a page with the text "Please check back soon for re.htb updates." , mmm we can surelly find something here, let's scan subdomains first like :
 ```
-$ wfuzz --hh 311  -H 'Host: FUZZ.re.htb' -c -w /home/roughiz/MyGit/SecLists/Discovery/DNS/fierce-hostlist.txt -u re.htb
+$ wfuzz --hh 311  -H 'Host: FUZZ.re.htb' -c -w SecLists/Discovery/DNS/fierce-hostlist.txt -u re.htb
 ```
 Nothing but in souce code, we have this comment :
 ```
