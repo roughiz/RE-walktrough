@@ -34,6 +34,7 @@ $ smbmap  -u anonymous -H 10.10.10.144
 Let's Read what we have into "malware_dropbox", but it's empty.
 
 ### Web site 
+
 ![redirect](https://github.com/roughiz/RE-walktrough/blob/master/redirect.png)
 
 Let's take a look into the http site, the site redirect us to "http://reblog.htb/" , we have to add this subdomaine to hosts file '/etc/hosts'  like:
@@ -444,6 +445,7 @@ $ evilWinRAR.py -o exploit.rar -e cmd.aspx  -g  ../my.jpeg -p 'C:\inetpub\wwwroo
 ![php](https://github.com/roughiz/RE-walktrough/blob/master/php.png)
 
 Finnally an .aspx command shell from [SecLists](https://github.com/danielmiessler/SecLists)  works great: ~/SecLists/Web-Shells/FuzzDB/cmd.aspx
+
 ![cmd_aspx](https://github.com/roughiz/RE-walktrough/blob/master/cmd.png)
 
 ### Shell as "iis apppool"
