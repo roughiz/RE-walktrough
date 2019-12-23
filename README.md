@@ -6,7 +6,7 @@ This [box](https://www.hackthebox.eu/home/machines/profile/198) from htb was ver
 Thanks to [0xdf](https://www.hackthebox.eu/home/users/profile/4935) for his great work.
 
 ## Enumeation
-I use masscan and nmap for a quick scan, here i use a script which create a keepnote page report from the scan, found it [here](https://github.com/roughiz/EnumNeTKeepNoteReportCreator/blob/master/keepNoteScanNetReportCreator.sh).
+I use masscan and nmap for a quick scan, here i use a script which create a keepnote page report from the scan, found it [here](https://github.com/roughiz/scautofire/blob/master/keepNoteScanNetReportCreator.sh).
  
 In my first enumeration we can see, smb share, and http(80) ports :
 ```
